@@ -1,7 +1,15 @@
 <h2>New image</h2>
 
 <%= form_for @image, :multipart => true do |f| %>
+  <%= f.label :attachment, 'Choose an image' %>
   <%= f.file_field :attachment %>
 
   <%= f.submit 'Upload' %>
+<% end %>
+
+<%= form_for @image do |f| %>
+  <%= f.label :remote_url, 'or paste link' %>
+  <%= f.text_field :remote_url %>
+
+  <%= f.submit 'Save' %>
 <% end %>

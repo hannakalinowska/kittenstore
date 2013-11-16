@@ -8,7 +8,11 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = current_user.images.create(image_params)
+    if image_params[:remote_url]
+      @image = current_user.images.create(:attachment => URI.parse(image_params[:remote_url]))
+    else
+      @image = current_user.images.create(image_params)
+    end
     redirect_to images_path
   end
 
@@ -20,6 +24,6 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:attachment)
+    params.require(:image).permit(:attachment, :remote_url)
   end
 end
