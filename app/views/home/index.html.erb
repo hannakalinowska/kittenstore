@@ -1,0 +1,6 @@
+<% if current_user  %>
+  <p>Signed in as <%= current_user.name %></p>
+  <p><%= link_to 'Sign out', sign_out_path, :method => 'delete' %></p>
+<% else %>
+  <%= link_to 'Sign in with Twitter', '/auth/twitter' %>
+<% end %>

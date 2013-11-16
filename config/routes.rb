@@ -1,4 +1,8 @@
 Kittenstore::Application.routes.draw do
+  get 'auth/twitter/callback' => 'sessions#create'
+  delete '/session' => 'sessions#destroy', :as => 'sign_out'
+  root "home#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,7 +43,7 @@ Kittenstore::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
