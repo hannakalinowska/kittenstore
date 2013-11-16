@@ -1,0 +1,15 @@
+<h2>Your images</h2>
+
+<% if @images.any? %>
+  <ul>
+    <% @images.each do |image| %>
+      <li>
+        <%= link_to image.attachment_file_name, image.attachment.url %>
+        <%= link_to 'Delete', image_path(image), :method => 'delete' %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You don't have any images yet.</p>
+  <p><%= link_to 'Upload an image', new_image_path %></p>
+<% end %>

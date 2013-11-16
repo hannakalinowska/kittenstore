@@ -1,6 +1,9 @@
 Kittenstore::Application.routes.draw do
   get 'auth/twitter/callback' => 'sessions#create'
   delete '/session' => 'sessions#destroy', :as => 'sign_out'
+
+  resources :images
+
   root "home#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
