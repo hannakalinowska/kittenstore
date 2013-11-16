@@ -1,14 +1,26 @@
 <h2>Your images</h2>
 
 <% if @images.any? %>
-  <ul>
-    <% @images.each do |image| %>
-      <li>
-        <%= link_to image.attachment_file_name, image.attachment.url %>
-        <%= link_to 'Delete', image_path(image), :method => 'delete' %>
-      </li>
-    <% end %>
-  </ul>
+  <table class="table table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>File size</th>
+        <th>Created at</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @images.each do |image| %>
+        <tr>
+          <td><%= link_to image.attachment_file_name, image.attachment.url %></td>
+          <td><%= converted_file_size(image.attachment_file_size) %></td>
+          <td><%= image.created_at %></td>
+          <td><%= link_to 'Delete', image_path(image), :method => 'delete' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
   <p>You don't have any images yet.</p>
 <% end %>
