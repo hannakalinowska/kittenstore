@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
-gem 'sqlite3'
+gem 'mysql2'
 gem 'uglifier', '>= 1.3.0'
 gem 'paperclip'
 
@@ -18,7 +18,8 @@ gem 'foreman'
 gem 'unicorn'
 
 group :development do
-  gem 'capistrano'
+  gem 'capistrano', '~> 2.14'
+  gem 'rvm-capistrano'
 end
 
 group :test do
