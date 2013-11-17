@@ -1,15 +1,19 @@
 <h2>New image</h2>
 
 <%= form_for @image, :multipart => true do |f| %>
-  <%= f.label :attachment, 'Choose an image' %>
-  <%= f.file_field :attachment %>
+  <div class="form-group">
+    <%= f.label :attachment, 'Choose an image' %>
+    <%= f.file_field :attachment, :class => 'form-control' %>
+  </div>
 
-  <%= f.submit 'Upload' %>
+  <div class="form-group"><%= f.submit 'Upload', :class => 'btn' %></div>
 <% end %>
 
 <%= form_for @image do |f| %>
-  <%= f.label :remote_url, 'or paste link' %>
-  <%= f.text_field :remote_url %>
+  <div>
+    <%= f.label :remote_url, 'or paste link' %>
+    <%= f.text_field :remote_url, :class => 'form-control' %>
+  </div>
 
-  <%= f.submit 'Save' %>
+  <div class="form-group"><%= f.submit 'Save', :class => 'btn' %></div>
 <% end %>
