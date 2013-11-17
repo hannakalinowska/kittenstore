@@ -6,9 +6,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'paperclip'
 
 gem 'jquery-rails'
-gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
-gem 'less-rails'
 
 gem 'twitter'
 gem 'omniauth-twitter'
