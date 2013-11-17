@@ -18,8 +18,8 @@ gem 'foreman'
 gem 'unicorn'
 
 group :development do
-  gem 'capistrano', '~> 2.14'
-  gem 'rvm-capistrano'
+  gem 'capistrano'
+  gem 'capistrano-rails'
 end
 
 group :test do
