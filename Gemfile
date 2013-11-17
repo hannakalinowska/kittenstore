@@ -21,6 +21,7 @@ gem 'unicorn'
 group :development do
   gem 'capistrano'
   gem 'capistrano-rails'
+  gem 'capistrano-rvm'
 end
 
 group :test do

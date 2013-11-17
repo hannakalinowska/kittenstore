@@ -1,11 +1,15 @@
 set :stage, :production
+set :rvm_type, :auto
+set :rvm_ruby_version, '2.0.0@kittenstore'
 
 # Simple Role Syntax
 # ==================
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
-role :all, %w(kittenstore@wonderduck.es)
+role :web, %w(kittenstore@wonderduck.es)
+role :app, %w(kittenstore@wonderduck.es)
+role :db, %w(kittenstore@wonderduck.es)
 
 # Extended Server Syntax
 # ======================
