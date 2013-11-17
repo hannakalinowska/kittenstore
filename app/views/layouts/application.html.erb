@@ -17,12 +17,21 @@
         </a>
         <%= link_to 'Kittenstore', root_path, :class => 'brand' %>
         <div class="nav-collapse">
-          <ul class="nav">
+          <ul class="nav navbar-nav">
             <li><%= link_to "Home", root_path %></li>
             <% if logged_in? %>
               <li><%= link_to "Images", images_path %></li>
             <% end %>
           </ul>
+          <% if logged_in? %>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a href="#">
+                  <%= current_user.name %>
+                </a>
+              </li>
+            </ul>
+          <% end %>
         </div>
       </div>
     </div>
