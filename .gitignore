@@ -15,4 +15,5 @@
 /log/*.log
 /tmp
 database.yml
+application.yml
 .env
