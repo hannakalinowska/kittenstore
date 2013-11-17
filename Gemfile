@@ -12,7 +12,8 @@ gem 'less-rails'
 
 gem 'twitter'
 gem 'omniauth-twitter'
-gem 'httparty'
+gem 'tweetstream'
+gem 'em-twitter'
 
 gem 'foreman'
 gem 'unicorn'
@@ -27,4 +28,5 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'vcr'
+  gem 'webmock'
 end
