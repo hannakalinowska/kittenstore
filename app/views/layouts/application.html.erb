@@ -19,7 +19,9 @@
         <div class="nav-collapse">
           <ul class="nav">
             <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Images", images_path %></li>
+            <% if logged_in? %>
+              <li><%= link_to "Images", images_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -28,9 +30,16 @@
 
 
 
-<div class="row">
-  <%= yield %>
-</div>
+  <div class="row">
+    <% if flash[:notice] %>
+      <p class="text-success"><%= flash[:notice] %></p>
+  <% end %>
+    <% if flash[:alert] %>
+      <p class="text-warning"><%= flash[:alert] %></p>
+  <% end %>
+
+    <%= yield %>
+  </div>
 
 </body>
 </html>
