@@ -15,5 +15,6 @@ OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
   :uid => default_user_params[:uid],
   :info => {
     'nickname' => default_user_params[:name],
+    'image' => 'http://example.com/image'
   }
 })
