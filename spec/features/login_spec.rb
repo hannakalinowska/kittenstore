@@ -1,16 +1,22 @@
-require 'spec_helper'
+require 'integration_helper'
 
 describe 'Login' do
-  it 'logs in an existing user' do
-    pending
+  it 'signs in an existing user' do
+    create_default_user
+    visit '/'
+    click_link 'Sign in with Twitter'
+    assert_signed_in
   end
 
   it 'signs up a new user' do
-    pending
+    visit '/'
+    click_link 'Sign in with Twitter'
+    assert_signed_in
   end
 
-  it 'displays message when user cancels authorisation' do
-    pending
+  it 'signs out' do
+    sign_in
+    click_link 'Sign out'
+    assert_signed_out
   end
-
 end
