@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
   has_many :images
 
+  validates :name, presence: true
+  validates :uid, presence: true
+  validates :provider, presence: true
+
+
   def self.from_omniauth(auth)
     where(auth.slice('provider', 'uid')).first || create_from_omniauth(auth)
   end
