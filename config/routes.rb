@@ -4,6 +4,8 @@ Kittenstore::Application.routes.draw do
 
   resources :images
 
+  resource :account, :only => [:show, :destroy]
+
   root "home#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
