@@ -12,7 +12,7 @@ describe 'Images' do
   end
 
   it 'scrapes an image from a remote url' do
-    stub_request(:get, /example\.com/).to_return(:status => 200, :body => '')
+    stub_request(:get, /example\.com/).to_return(:status => 200, :body => '', :headers => {:content_type => 'image/gif'})
     visit '/images/new'
     fill_in_image_url
     assert_image_created

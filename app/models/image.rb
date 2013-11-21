@@ -2,6 +2,7 @@ class Image < ActiveRecord::Base
   belongs_to :user
 
   has_attached_file :attachment
+  validates_attachment :attachment, :content_type => { :content_type => ['image/gif', 'image/jpeg', 'image/png'] }
 
   attr_accessor :remote_url
 
