@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
       user.profile_image = auth['info']['image']
     end
   end
+
+  def account
+    Account.new(self)
+  end
 end

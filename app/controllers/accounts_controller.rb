@@ -2,6 +2,7 @@ class AccountsController < ApplicationController
   before_filter :ensure_logged_in
 
   def show
+    @account = current_user.account
   end
 
   def destroy

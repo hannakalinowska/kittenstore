@@ -1,3 +1,8 @@
 <h2>Your account</h2>
 
-<div><%= link_to 'Delete your account', account_path, :method => :delete, :data => {:confirm => 'Are you sure? This will delete your entire account!'}, :class => 'btn btn-danger' %></div>
+<p>You are currently using <%= converted_file_size(@account.used_space) %>.</p>
+<p>You have uploaded <%= current_user.images.count %> images.</p>
+
+<div class="delete-account">
+  <%= link_to 'Delete your account', account_path, :method => :delete, :data => {:confirm => 'Are you sure? This will delete your entire account!'}, :class => 'btn btn-danger' %>
+</div>
