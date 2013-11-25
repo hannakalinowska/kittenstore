@@ -1,5 +1,7 @@
 <% if current_user  %>
-  <p>Signed in as <%= current_user.name %></p>
+
+  <p>Tweet a link at <%= link_to '@kitten_store', 'https://twitter.com/kitten_store' %> to add more pictures!</p>
+
   <p><%= link_to 'Sign out', sign_out_path, :method => 'delete' %></p>
 <% else %>
   <%= link_to 'Sign in with Twitter', '/auth/twitter' %>
