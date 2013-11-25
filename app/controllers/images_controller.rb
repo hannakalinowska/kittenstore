@@ -10,17 +10,17 @@ class ImagesController < ApplicationController
   end
 
   def create
-    if image_params[:remote_url]
-      @image = current_user.images.create(:attachment => URI.parse(image_params[:remote_url]))
+    @image = Image.create_from_params(current_user, image_params)
+    if @image.save
+      redirect_to images_path, notice: 'Your image has been saved.'
     else
-      @image = current_user.images.create(image_params)
+      render :new
     end
-    redirect_to images_path
   end
 
   def destroy
     current_user.images.find(params[:id]).destroy
-    redirect_to images_path
+    redirect_to images_path, notice: 'Your image has been deleted.'
   end
 
   private

@@ -17,6 +17,10 @@ def assert_image_created
   Image.count.should == 1
 end
 
+def assert_image_not_created
+  Image.count.should == 0
+end
+
 def valid_tweet
   File.read(File.join('spec', 'fixtures', 'valid_tweet.json'))
 end
