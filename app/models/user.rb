@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   validates :uid, presence: true
   validates :provider, presence: true
 
-
   def self.from_omniauth(auth)
     find_and_update_from_omniauth(auth) || create_from_omniauth(auth)
   end
@@ -27,6 +26,10 @@ class User < ActiveRecord::Base
       user.name = auth['info']['nickname']
       user.profile_image = auth['info']['image']
     end
+  end
+
+  def can_upload?
+    account.has_free_space?
   end
 
   def account

@@ -12,6 +12,7 @@ describe Image do
     end
 
     it 'creates an image for a known user' do
+      user = User.create!(:provider => 'twitter', :uid => '1234', :name => 'foo')
       User.stub(:find_by_uid => user)
       expect {
         Image.create_from_tweet(tweet)

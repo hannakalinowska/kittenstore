@@ -3,6 +3,7 @@ class Image < ActiveRecord::Base
 
   has_attached_file :attachment
   validates_attachment :attachment, :content_type => { :content_type => ['image/gif', 'image/jpeg', 'image/png'] }
+  validates_with AccountValidator
 
   attr_accessor :remote_url
 
@@ -10,7 +11,7 @@ class Image < ActiveRecord::Base
     user = User.find_by_uid(tweet.user.id)
     if user
       tweet.urls.each do |url_entity|
-        user.images.create(:attachment => URI.parse(url_entity.expanded_url))
+        user.images.create!(:attachment => URI.parse(url_entity.expanded_url))
       end
     end
   end

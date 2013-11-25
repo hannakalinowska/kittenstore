@@ -1,6 +1,6 @@
 <h2>Your account</h2>
 
-<p>You are currently using <%= converted_file_size(@account.used_space) %>.</p>
+<p>You are currently using <%= converted_file_size(@account.used_space) %> out of <%= converted_file_size(Account::SPACE_LIMIT) %>.</p>
 <p>You have uploaded <%= current_user.images.count %> images.</p>
 
 <div class="delete-account">
